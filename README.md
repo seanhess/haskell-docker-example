@@ -15,3 +15,21 @@ Requests reach the docker container, but we get an empty response error because 
 
     $ curl -i http://localhost:8010
     curl: (52) Empty reply from server
+
+
+Fixed!
+------
+
+This was resolved by building with docker. I added the following to stack.yaml
+
+    docker:
+      enable: true
+
+The it can be rebuilt within a docker image, resolving the cross-architecture issue:
+
+    stack build
+    stack image container
+
+Here's how to run it:
+
+    docker run -it -p 8010:8010 haskell-docker-example /usr/local/bin/haskell-docker-example-exe
