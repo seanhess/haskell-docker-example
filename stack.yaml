@@ -20,9 +20,9 @@ image:
   container:
     name: haskell-docker-example
     base: fpco/stack-run
-    add:
+    # add:
       # config: /app/config
-      static: /app/static
+      # static: /app/static
 
 # Control whether we use the GHC we find on the path
 # system-ghc: true
